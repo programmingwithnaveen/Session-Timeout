@@ -27,6 +27,6 @@ npm install --save @ng-bootstrap/ng-bootstrap
 
 ## Refernces
 
-https://hackedbychinese.github.io/ng2-idle/
-http://getbootstrap.com/
-https://ng-bootstrap.github.io/#/getting-started
+1. https://hackedbychinese.github.io/ng2-idle/
+2. http://getbootstrap.com/
+3. https://ng-bootstrap.github.io/#/getting-started
