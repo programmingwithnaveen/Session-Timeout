@@ -11,10 +11,10 @@ Start the server using command -  `ng serve`.
 1. Create Angular CLI project
 2. Install below mentioned packages
 
-    i) npm install --save @ng-idle/core
-    ii) npm install --save @ng-idle/keepalive 
-    iii) npm install --save bootstrap@4.0.0-beta
-    iv) npm install --save @ng-bootstrap/ng-bootstrap
+    i. npm install --save @ng-idle/core
+    ii. npm install --save @ng-idle/keepalive 
+    iii. npm install --save bootstrap@4.0.0-beta
+    iv. npm install --save @ng-bootstrap/ng-bootstrap
 
 3. Update the angular-cli.json to include Bootstrap CSS
 
