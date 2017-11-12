@@ -1,11 +1,11 @@
-import { HttpModule } from '@angular/http';
-import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProgressBarModalComponent } from './progressbar-modal.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {HttpModule} from '@angular/http';
+import {NgIdleKeepaliveModule} from '@ng-idle/keepalive';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ProgressBarModalComponent} from './progressbar-modal.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 
 @NgModule({
   declarations: [
@@ -22,4 +22,5 @@ import { AppComponent } from './app.component';
   bootstrap: [AppComponent],
   entryComponents: [ProgressBarModalComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
