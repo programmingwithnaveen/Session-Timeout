@@ -19,34 +19,46 @@ export class AppComponent {
 
   constructor(private element: ElementRef, private idle: Idle, private keepalive: Keepalive, private ngbModal: NgbModal) {
     // sets an idle timeout of 15 minutes.
-    idle.setIdle(600);
+    idle.setIdle(900);
     // sets a timeout period of 5 minutes.
     idle.setTimeout(300);
-    idle.setInterrupts([new EventTargetInterruptSource(this.element.nativeElement, 'keydown DOMMouseScroll mousewheel mousedown touchstart touchmove scroll')]);
+    // sets the interrupts like Keydown, scroll, mouse wheel, mouse down, and etc 
+    idle.setInterrupts([
+      new EventTargetInterruptSource(
+        this.element.nativeElement, 'keydown DOMMouseScroll mousewheel mousedown touchstart touchmove scroll')]);
+
     idle.onIdleEnd.subscribe(() => {
       this.idleState = 'NO_LONGER_IDLE';
     });
+
     idle.onTimeout.subscribe(() => {
       this.idleState = 'TIMED_OUT';
       this.timedOut = true;
       this.closeProgressForm();
-
     });
+
     idle.onIdleStart.subscribe(() => {
       this.idleState = 'IDLE_START', this.openProgressForm(1);
     });
+
     idle.onTimeoutWarning.subscribe((countdown: any) => {
       this.idleState = 'IDLE_TIME_IN_PROGRESS';
-
       this.progressBarPopup.componentInstance.count = (Math.floor((countdown - 1) / 60) + 1);
       this.progressBarPopup.componentInstance.progressCount = this.reverseNumber(countdown);
       this.progressBarPopup.componentInstance.countMinutes = (Math.floor(countdown / 60));
       this.progressBarPopup.componentInstance.countSeconds = countdown%60;
-
     });
+
     // sets the ping interval to 15 seconds
     keepalive.interval(15);
-    keepalive.onPing.subscribe(() => this.lastPing = new Date());
+    /**
+     *  Keepalive can ping request to an HTTP location to keep server session alive
+     * keepalive.request('<String URL>' or HTTP Request);
+     */
+    
+    keepalive.onPing.subscribe(() => {
+      this.lastPing = new Date();
+    });
     this.reset();
   }
 
