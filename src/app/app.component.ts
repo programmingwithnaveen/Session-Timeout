@@ -22,7 +22,7 @@ export class AppComponent {
     idle.setIdle(900);
     // sets a timeout period of 5 minutes.
     idle.setTimeout(300);
-    // sets the interrupts like Keydown, scroll, mouse wheel, mouse down, and etc 
+    // sets the interrupts like Keydown, scroll, mouse wheel, mouse down, and etc
     idle.setInterrupts([
       new EventTargetInterruptSource(
         this.element.nativeElement, 'keydown DOMMouseScroll mousewheel mousedown touchstart touchmove scroll')]);
@@ -52,13 +52,16 @@ export class AppComponent {
     // sets the ping interval to 15 seconds
     keepalive.interval(15);
     /**
-     *  Keepalive can ping request to an HTTP location to keep server session alive
+     *  // Keepalive can ping request to an HTTP location to keep server session alive
      * keepalive.request('<String URL>' or HTTP Request);
+     * // Keepalive ping response can be read using below option
+     * keepalive.onPing.subscribe(response => {
+     * // Redirect user to logout screen stating session is timeout out if if response.status != 200
+     * });
      */
-    
-    keepalive.onPing.subscribe(() => {
-      this.lastPing = new Date();
-    });
+ 
+
+   
     this.reset();
   }
 
