@@ -29,11 +29,9 @@ export class ProgressBarModalComponent {
 
   constructor(public activeModal: NgbActiveModal) {
   }
-
   continue() {
     this.activeModal.close(null);
   }
-
   logout() {
     this.activeModal.close('logout');
   }
